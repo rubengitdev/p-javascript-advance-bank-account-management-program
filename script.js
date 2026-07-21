@@ -13,7 +13,7 @@ class BankAccount {
 
             this.balance += depositAmount;
 
-            return `Successfully deposited ${depositAmount}. New balance: ${this.balance}`;
+            return `Successfully deposited $${depositAmount}. New balance: $${this.balance}`;
         }
         return `Deposit amount must be greater than zero.`;
     }
@@ -27,7 +27,7 @@ class BankAccount {
 
             this.balance += withdrawalAmount;
 
-            return `Successfully withdrew ${withdrawalAmount}. New balance: ${this.balance}`;
+            return `Successfully withdrew $${withdrawalAmount}. New balance: $${this.balance}`;
         }
         return `Insufficient balance or invalid amount.`;
     }
@@ -61,5 +61,9 @@ class BankAccount {
     }
 }
 
-const BankAccount = new BankAccount();
-console.log(BankAccount.listAllDeposits());
+const myAccount = new BankAccount();
+
+// myAccount.deposit(100);
+// myAccount.deposit(-50);
+// myAccount.deposit(-50);
+console.log(myAccount.deposit(100));
