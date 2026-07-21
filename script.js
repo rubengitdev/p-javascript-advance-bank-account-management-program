@@ -19,13 +19,13 @@ class BankAccount {
     }
 
     withdraw(withdrawalAmount) {
-        if (withdrawalAmount > 0 && withdrawalAmount >= this.balance) {
+        if (withdrawalAmount > 0 && withdrawalAmount <= this.balance) {
             this.transactions.push({
                 type: "withdraw",
                 amount: withdrawalAmount,
             });
 
-            this.balance += withdrawalAmount;
+            this.balance -= withdrawalAmount;
 
             return `Successfully withdrew $${withdrawalAmount}. New balance: $${this.balance}`;
         }
@@ -33,7 +33,7 @@ class BankAccount {
     }
 
     checkBalance() {
-        return `Current balance: ${this.balance}`;
+        return `Current balance: $${this.balance}`;
     }
 
     listAllDeposits() {
@@ -63,7 +63,6 @@ class BankAccount {
 
 const myAccount = new BankAccount();
 
-// myAccount.deposit(100);
-// myAccount.deposit(-50);
-// myAccount.deposit(-50);
 console.log(myAccount.deposit(100));
+console.log(myAccount.withdraw(150));
+console.log(myAccount.checkBalance());
