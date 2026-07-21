@@ -40,8 +40,8 @@ class BankAccount {
         const deposits = [];
 
         this.transactions.forEach((transaction) => {
-            if (transaction === "deposit") {
-                deposits.push(transaction.depositAmount);
+            if (transaction.type === "deposit") {
+                deposits.push(transaction.amount);
             }
         });
 
@@ -52,8 +52,8 @@ class BankAccount {
         const withdrawals = [];
 
         this.transactions.forEach((transaction) => {
-            if (transaction === "withdraw") {
-                withdrawals.push(transaction.withdrawalAmount);
+            if (transaction.type === "withdraw") {
+                withdrawals.push(transaction.amount);
             }
         });
 
@@ -64,5 +64,10 @@ class BankAccount {
 const myAccount = new BankAccount();
 
 console.log(myAccount.deposit(100));
-console.log(myAccount.withdraw(150));
+console.log(myAccount.deposit(100));
+console.log(myAccount.deposit(100));
+console.log(myAccount.deposit(100));
+console.log(myAccount.withdraw(50));
+console.log(myAccount.withdraw(50));
 console.log(myAccount.checkBalance());
+console.log(myAccount.listAllDeposits());
