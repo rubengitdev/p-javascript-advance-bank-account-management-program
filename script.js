@@ -47,6 +47,18 @@ class BankAccount {
 
         return `Deposits: ${deposits.join(",")}`;
     }
+
+    listAllWithdrawals() {
+        const withdrawals = [];
+
+        this.transactions.forEach((transaction) => {
+            if (transaction === "withdraw") {
+                withdrawals.push(transaction.withdrawalAmount);
+            }
+        });
+
+        return `Withdrawals: ${withdrawals.join(",")}`;
+    }
 }
 
 const BankAccount = new BankAccount();
