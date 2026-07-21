@@ -31,4 +31,8 @@ class BankAccount {
         }
         return `Insufficient balance or invalid amount.`;
     }
+
+    checkBalance() {
+        return `Current balance: ${this.balance}`;
+    }
 }
