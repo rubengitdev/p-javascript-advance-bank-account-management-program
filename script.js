@@ -35,4 +35,19 @@ class BankAccount {
     checkBalance() {
         return `Current balance: ${this.balance}`;
     }
+
+    listAllDeposits() {
+        const deposits = [];
+
+        this.transactions.forEach((transaction) => {
+            if (transaction === "deposit") {
+                deposits.push(transaction.depositAmount);
+            }
+        });
+
+        return `Deposits: ${deposits.join(",")}`;
+    }
 }
+
+const BankAccount = new BankAccount();
+console.log(BankAccount.listAllDeposits());
